@@ -9,7 +9,7 @@
 // create a database []
 exports.database = () => {
     const sqlite3 = require('sqlite3').verbose();
-    const db = new sqlite3.Database('./money_thing.db', (err) => {
+    const db = new sqlite3.Database('./z2024.db', (err) => {
         if (err) {
             console.log(err);
         } else {
@@ -18,4 +18,21 @@ exports.database = () => {
     });
     return db;
 
+}
+exports.create_table = () => {
+    const db = this.database();
+    db.run(`
+        create table if not exists money_thing( 
+        id integer primary key autoincrement,
+        thing text not null,
+        money real not null,
+        time_happen date not null
+        )
+        `, (err) => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("Table created successfully");
+        }
+    })
 }

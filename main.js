@@ -5,7 +5,7 @@ main()
 function main() {
   console.log("1.what am I going to face today?");
   const schedule = require('./function/Schedule');
-  schedule.database();
+  schedule.create_table();
 }
 
 
