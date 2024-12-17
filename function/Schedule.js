@@ -21,6 +21,7 @@ exports.database = () => {
 }
 exports.create_table = () => {
     const db = this.database();
+    // record thing .
     db.run(`
         create table if not exists money_thing( 
         id integer primary key autoincrement,
