@@ -37,3 +37,16 @@ exports.create_table = () => {
         }
     })
 }
+
+exports.insert_money_thing = (thing,money,time_happen) => {
+    const db = this.database();
+    db.run(`
+        insert into money_thing (thing, money, time_happen) values (?, ?, ?)
+        `, [thing, money, time_happen], (err) => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("Data inserted successfully");
+        }
+    })
+}   
